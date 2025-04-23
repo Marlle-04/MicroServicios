@@ -21,7 +21,7 @@ class User extends Authenticatable
         'reservation_id',
         'amount',
         'method',
-        'status',
+        'status'
     ];
 
     /**

@@ -9,13 +9,18 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->dateTime('reservation_date');
+            $table->string('status')->default('pending'); // 'pending', 'confirmed', 'cancelled', etc.
+            $table->string('role')->default('user');
             $table->timestamps();
         });
     }
+    
 
     /**
      * Reverse the migrations.

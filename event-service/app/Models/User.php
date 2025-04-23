@@ -22,8 +22,6 @@ class User extends Authenticatable
         'description',
         'date',
         'location',
-        'capacity',
-        'category',
     ];
 
     /**

@@ -9,13 +9,18 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('reservation_id');
+            $table->decimal('amount', 10, 2);
+            $table->string('method');
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }
+    
 
     /**
      * Reverse the migrations.
